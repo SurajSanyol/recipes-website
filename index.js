@@ -17,7 +17,36 @@ if (!localStorage.getItem("darkMode")) {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
 }
 
+// ******************************************
+// hamberger start
 
+let hamberger = document.querySelector('#hamburger')
+
+hamberger.addEventListener('click',()=>{
+    document.querySelector('ul').classList.toggle('active');
+})
+
+document.querySelector('ul').addEventListener('click',(event)=>{
+    event.stopPropagation();
+    document.querySelector('ul').classList.remove('active');
+    const hamburgerIcon = document.getElementById('hamburger');
+    hamburgerIcon.classList.replace('bi-x', 'bi-list');
+    
+})
+
+function toggleHamburgerIcon() {
+    const hamburgerIcon = document.getElementById('hamburger');
+    if (hamburgerIcon.classList.contains('bi-list')) {
+        hamburgerIcon.classList.replace('bi-list', 'bi-x');
+    } else {
+        hamburgerIcon.classList.replace('bi-x', 'bi-list');
+    }
+}
+
+document.getElementById('hamburger').addEventListener('click', toggleHamburgerIcon);
+  
+// hamberger end
+// ****************************************** 
 
 // global flag
  let isSearching = false;
@@ -73,8 +102,8 @@ function showRecipe(data) {
 
         // Creating favorite button
         let favButton = document.createElement("button");
-        favButton.classList.add("fav-btn");
-        favButton.innerHTML = "🖤";
+        favButton.classList.add("fav-btn",'fs-3');
+        favButton.innerHTML = "🤍";
 
         if (isFavorite) {
             favButton.classList.add("active");

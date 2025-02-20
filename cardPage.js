@@ -61,8 +61,10 @@ function showRecipe(data) {
     ingredientTitle.innerText = 'ingredients'
 
     let ingredientList = document.createElement('ul')
+    ingredientList.classList.add('d-flex','flex-column')
     data.ingredients.forEach(element => {
         let list = document.createElement('li')
+       
         list.innerText = element
         ingredientList.appendChild(list)
     });
@@ -123,7 +125,7 @@ async function getComment(params) {
     try {
         const data = await fetch(`https://dummyjson.com/comments/post/${id}`)
         const jsonData = await data.json();
-        console.log(jsonData.comments);
+        // console.log(jsonData.comments);
         // showRecipe(jsonData)
         showComments(jsonData.comments)
 
@@ -176,7 +178,7 @@ function showComments(data) {
         DislikeIcon.classList.add('bi', 'bi-hand-thumbs-down');
         DislikeSpan.append(DislikeIcon)
 
-    
+
         likeDislikeDiv.append(likeSpan, DislikeSpan)
 
 
@@ -189,3 +191,31 @@ function showComments(data) {
 
     })
 }
+
+
+
+// dark mode 
+
+function toggleDarkMode() {
+    let darkModeEnabled = localStorage.getItem('darkMode') === 'true';
+    document.body.classList.toggle('dark-theme', !darkModeEnabled);
+    // document.querySelector("header").classList.toggle('dark-theme', !darkModeEnabled);
+    localStorage.setItem('darkMode', !darkModeEnabled);
+    updateDarkModeIcon(!darkModeEnabled);
+}
+
+// Function to update dark mode icon
+function updateDarkModeIcon(isDarkMode) {
+    const darkModeIcon = document.getElementById('dark-mode');
+    darkModeIcon.className = isDarkMode ? 'bi bi-moon-fill fs-5' : 'bi bi-brightness-high-fill fs-5';
+}
+
+// Initialize dark mode based on local storage
+document.addEventListener("DOMContentLoaded", () => {
+    const darkModeEnabled = localStorage.getItem('darkMode') === 'true';
+    console.log(darkModeEnabled);
+    
+    document.body.classList.toggle('dark-theme', darkModeEnabled);
+    // document.querySelector("header").classList.toggle('dark-theme', darkModeEnabled);
+    updateDarkModeIcon(darkModeEnabled);
+});

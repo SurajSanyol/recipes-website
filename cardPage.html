@@ -12,59 +12,126 @@
 
     <link rel="stylesheet" href="cardPage.css">
 
+    <style>
+        .dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        #dark-mode {
+            cursor: pointer;
+            margin-left: 10px;
+            width: 30px;
+        }
+
+        .dark-theme a {
+            color: #ffffff;
+        }
+
+        .dark-theme ul li a {
+            color: #ffffff;
+        }
+
+        .dark-theme .recipes-section-title h3 {
+            color: #ffffff;
+        }
+
+        .dark-theme .recipe-link h4 {
+            color: #ffffff;
+        }
+
+        .dark-theme .recipe-link p {
+            color: #ffffff;
+        }
+
+        .dark-theme .recipe-name{
+            color: #ffffff;
+        } 
+        
+        .dark-theme .ingredients h5{
+            color: #ffffff;
+        }
+         
+       .dark-theme .ingredients li{
+            color: #ffffff;
+        } 
+
+        .dark-theme .instructions h4{
+            color: #ffffff;
+        } 
+       
+        .dark-theme .instructions .steps-details{
+            color: #ffffff;
+        } 
+
+        /* ingredients */
+
+        .dark-theme .active {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-    <div class="recipes-section">
-        <!-- <div class="container">
-            <h3 class="recipe-name">Classic Margherita Pizza</h3>
-            <img src="https://cdn.dummyjson.com/recipe-images/1.webp" alt="" class="recipe-img">
-        </div> -->
+    <header>
 
-        <!-- <div class="container">
-            <h3 class="recipe-name skeleton-text"></h3>
-            <div class="skeleton-img"></div>
-        </div>
+        <div class="container d-flex justify-content-between align-items-center" id="container">
 
+            <a href="#" class="logo">
+                <span>RecipeWorld</span>
+            </a>
 
-        <div class="container ingredients" id="ingredients-section">
-            <div class="row">
-                <div class="col-md-4 col-sm-5">
-                    <h5>ingredients</h5>
-                    <ul>
-                        <li>Pizza dough</li>
-                        <li>Tomato sauce</li>
-                        <li>Fresh mozzarella cheese</li>
-                        <li>Fresh basil leaves</li>
-                    </ul>
-                </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#recipes-section">Menu</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
 
-                <div class="col-md-8 col-sm-7 instructions">
-                    <h4>instructions</h4>
-                    <div class="step-container">
-                        <p class="step">step 1</p>
-                        <p class="steps-details">Preheat the oven to 475°F (245°C).</p>
-                    </div>
+            <div id="header-button-section">
 
-                    <div class="step-container">
-                        <p class="step">step 1</p>
-                        <p class="steps-details">Preheat the oven to 475°F (245°C).</p>
-                    </div>
+                <i class="bi bi-list" id="hamburger" style="font-size: 36px; padding: 0;"></i>
+                <button class="login-btn">login</button>
 
-                    <div class="step-container">
-                        <p class="step">step 1</p>
-                        <p class="steps-details">Preheat the oven to 475°F (245°C).</p>
-                    </div>
+                <i id="dark-mode" class="bi"></i>
+                <script>
+                    function toggleDarkMode() {
+                        let darkModeEnabled = localStorage.getItem('darkMode') === 'true';
+                        document.body.classList.toggle('dark-theme', !darkModeEnabled);
+                        document.querySelector("header").classList.toggle('dark-theme', !darkModeEnabled);
+                        localStorage.setItem('darkMode', !darkModeEnabled);
+                        updateDarkModeIcon(!darkModeEnabled);
+                    }
 
-                    <div class="step-container">
-                        <p class="step">step 1</p>
-                        <p class="steps-details">Preheat the oven to 475°F (245°C).</p>
-                    </div>
-                </div>
+                    // Function to update dark mode icon
+                    function updateDarkModeIcon(isDarkMode) {
+                        const darkModeIcon = document.getElementById('dark-mode');
+                        darkModeIcon.className = isDarkMode ? 'bi bi-moon-fill fs-5' : 'bi bi-brightness-high-fill fs-5';
+                    }
+
+                    // Initialize dark mode based on local storage
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const darkModeEnabled = localStorage.getItem('darkMode') === 'true';
+                        document.body.classList.toggle('dark-theme', darkModeEnabled);
+                        document.querySelector("header").classList.toggle('dark-theme', darkModeEnabled);
+                        updateDarkModeIcon(darkModeEnabled);
+                    });
+
+                    // Add event listener to toggle dark mode
+                    document.getElementById('dark-mode').addEventListener('click', toggleDarkMode);
+                </script>
+
             </div>
-        </div> -->
+
+        </div>
+    </header>
+
+    <div class="recipes-section">
+
 
     </div>
 
@@ -76,23 +143,31 @@
 
         <div class="container">
             <div class="row gy-3" id="comment-row">
-                <!-- <div class="comment d-flex">
-                    <img src="https://dummyjson.com/icon/lincolnk/128" alt="" class="rounded-circle">
-
-                    <div>
-                        <h5>jane smith</h5>
-                        <p>This is a persuasive argument!</p>
-
-                        <div class="like-dislike-container">
-                            <span class="like"><i class="bi bi-hand-thumbs-up"></i>10</span>
-                            <span class="dislike"><i class="bi bi-hand-thumbs-down"></i></span>
-                        </div>
-                    </div>
-
-                </div> -->
+                
             </div>
         </div>
     </div>
+
+    <footer style="background-color: rgb(199 203 192 / 30%); padding: 20px 0;">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                      <div class="col-md-6 col-sm-5">
+                        <div class="footer-leftside">
+                             <strong>RecipeWorld</strong>
+                              <p>The best place to learn recipes, cooking techniques, most popular dishes, and real culinary experiences—all for free!</p>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-5">
+                        <div class="footer-rightside">
+                            <strong>Menu</strong>
+                             <p>Home</p>
+                             <p>About</p>
+                             <p>Contact</p>
+                       </div>
+                      </div>
+                </div>
+            </div>
+    </footer>
 
 </body>
 <script src="cardPage.js"></script>

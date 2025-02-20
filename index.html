@@ -16,7 +16,7 @@
             color: #ffffff;
         }
 
-        #dark-mode{
+        #dark-mode {
             cursor: pointer;
             margin-left: 10px;
             width: 30px;
@@ -30,23 +30,33 @@
             color: #ffffff;
         }
 
-        .dark-theme .recipes-section-title h3{
+        .dark-theme .recipes-section-title h3 {
             color: #ffffff;
         }
 
-        .dark-theme .recipe-link h4{
-            color: #ffffff;
-        }
-        
-        .dark-theme .recipe-link p{
+        .dark-theme .recipe-link h4 {
             color: #ffffff;
         }
 
-        .dark-theme .recipe-link p span{
+        .dark-theme .recipe-link p {
             color: #ffffff;
         }
-        
+
+        .dark-theme .recipe-link p span {
+            color: #ffffff;
+        }
+
+        .dark-theme .active {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+      
     </style>
+
+
+
+
 </head>
 
 <body>
@@ -68,10 +78,10 @@
 
             <div id="header-button-section">
 
+                <i class="bi bi-list" id="hamburger" style="font-size: 36px; padding: 0;"></i>
                 <button class="login-btn">login</button>
 
                 <i id="dark-mode" class="bi"></i>
-
                 <script>
                     function toggleDarkMode() {
                         let darkModeEnabled = localStorage.getItem('darkMode') === 'true';
@@ -84,7 +94,7 @@
                     // Function to update dark mode icon
                     function updateDarkModeIcon(isDarkMode) {
                         const darkModeIcon = document.getElementById('dark-mode');
-                        darkModeIcon.className = isDarkMode ? 'bi bi-moon-fill' : 'bi bi-brightness-high-fill';
+                        darkModeIcon.className = isDarkMode ? 'bi bi-moon-fill fs-5' : 'bi bi-brightness-high-fill fs-5';
                     }
 
                     // Initialize dark mode based on local storage
@@ -121,6 +131,8 @@
 
             <div class="container">
                 <div class="row gy-3" id="menu-list">
+
+                  
 
 
                 </div>
